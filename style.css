@@ -42,6 +42,7 @@ body{
     padding: 35px 15px;
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
+    user-select: none;
 }
 body.hide-scrolling{
     overflow-y: hidden;
@@ -811,6 +812,9 @@ button{
     border-radius: 50%;
     margin: 6px 4px 0 0;
     transition: all 0.3s ease;
+}
+.contact-info .contact-info-item a{
+    color: var(--blue-dark);
 }
 .contact-info-item .social-links a:hover{
     color: var(--white);
