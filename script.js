@@ -102,12 +102,25 @@ function portfolioItemDetails(portfolioItem){
 
 /* -------------------Contact Form Google Sheet--------------- */
 
-            const scriptURL = 'https://script.google.com/macros/s/AKfycbylTFeZ9ioyQXMhViky8NUPw_tchkcoNGwIDIknwiGKIAjpv8AsO8LYWt5AVviOr6_M5w/exec'
-            const form = document.forms['contact-form']
-          
-            form.addEventListener('submit', e => {
-              e.preventDefault()
-              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
-                .then(response => alert("Thanks for Contacting me..!  I Will Contact You Soon..."))
-                .catch(error => console.error('Error!', error.message))
-            })
+const scriptURL = 'https://script.google.com/macros/s/AKfycbylTFeZ9ioyQXMhViky8NUPw_tchkcoNGwIDIknwiGKIAjpv8AsO8LYWt5AVviOr6_M5w/exec'
+const form = document.forms['contact-form']
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+    .then(response => alert("Thanks for Contacting me..!  I Will Contact You Soon..."))
+    .catch(error => console.error('Error!', error.message))
+})
+
+// Disable Right Click
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+},false)
+
+// Disable Shortcut Keys
+document.addEventListener("keydown",function(e){
+    if(e.ctrlKey || e.keycode==123){
+        e.stopPropagation();
+        e.preventDefault();
+    }
+});
