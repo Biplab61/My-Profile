@@ -8,117 +8,294 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
-    <!-- BootStrap CSS -->
+        <!-- BootStrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <title>Login Page</title>
     <style>
-        *{
-            box-sizing: border-box;
-        }
-        body{
-            margin: 0;
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-            font-family: "Lato", sans-serif;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #555;
-            background-color: #ecf0f3;
-            user-select: none;
-        }
+        :root{
+    --main-color: #e02f6b;
+    --blue: #0000ff;
+    --blue-dark: #18293c;
+    --orange: #ffa500;
+    --green-yellow: #cddc39;
+    --pink-light: #efa2b4;
+    --cyan-light: #aef1ee;
+    --white: #ffff;
+    --white-alpha-40: rgba(255, 255, 255, 0.40);
+    --white-alpha-25: rgba(255, 255, 255, 0.25);
+    --backdrop-filter-bulr: blur(5px);
+}
+    *{
+        box-sizing: border-box;
+    }
+    body{
+        margin: 0;
+        height: 100vh;
+        width: 100vw;
+        overflow: hidden;
+        font-family: "Lato", sans-serif;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #555;
+        /* background-color: #ecf0f3; */
+        background-image: linear-gradient(to bottom right,var(--pink-light), var(--cyan-light));
+        user-select: none;
+    }
+    .login-div{
+        width: 430px;
+        height: 700px;
+        padding: 60px 35px 35px 35px;
+        /* border-radius: 40px;
+        background-color: #ecf0f3; */
+        background-color: var(--white-alpha-25);
+        border: 1px solid var(--white-alpha-40);
+        border-radius: 30px;
+        backdrop-filter: var(--backdrop-filter-bulr);
+        box-shadow: 13px 13px 20px #b2b3b4,-13px -13px 20px #e0d9db;
+    }
+    .logo{
+        background: url(img/Login.png);
+        width: 100px;
+        height: 100px;
+        border-radius: 50px;
+        margin: 0 auto;
+        box-shadow: 0px 0px 2px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaaf, -8px -8px 15px rgb(230, 212, 212);
+    }
+    .title{
+        text-align: center;
+        font-size: 28px;
+        padding-top: 24px;
+        letter-spacing: 0.5px;
+    }
+    .sub-title{
+        text-align: center;
+        font-size: 15px;
+        padding-top: 7px;
+        letter-spacing: 3px;
+    }
+    .fields{
+        width: 100%;
+        padding: 75px 5px 5px 5px;
+    }
+    .fields input{
+        text-align: left;
+        border: none;
+        outline: none;
+        background: none;
+        font-size: 18px;
+        color: #555;
+        padding: 20px 10px 20px 5px;
+    }
+    .username, .password{
+        margin-bottom: 30px;
+        border-radius: 25px;
+        box-shadow: inset 8px 8px 8px #b2b3b4, inset -8px -8px 10px rgb(238, 230, 230);
+    }
+    .fields form img{
+        height: 22px;
+        margin: 0 10px -3px 20px;
+    }
+    .link{
+        padding-top: 30px;
+        text-align: center;
+    }
+    .link a{
+        text-decoration: none;
+        font-size: 15px;
+        padding-left: 10px;
+    }
+    @media(max-width:450px){
         .login-div{
-            width: 430px;
-            height: 700px;
-            padding: 60px 35px 35px 35px;
-            border-radius: 40px;
-            background-color: #ecf0f3;
-            box-shadow: 13px 13px 20px #cbced1,-13px -13px 20px #fff;
-        }
-        .logo{
-            background: url(img/Login.png);
-            width: 100px;
-            height: 100px;
-            border-radius: 50px;
-            margin: 0 auto;
-            box-shadow: 0px 0px 2px #5f5f5f, 0px 0px 0px 5px #ecf0f3, 8px 8px 15px #a7aaaf, -8px -8px 15px #fff;
-        }
-        .title{
-            text-align: center;
-            font-size: 28px;
-            padding-top: 24px;
-            letter-spacing: 0.5px;
-        }
-        .sub-title{
-            text-align: center;
-            font-size: 15px;
-            padding-top: 7px;
-            letter-spacing: 3px;
-        }
-        .fields{
-            width: 100%;
-            padding: 75px 5px 5px 5px;
-        }
-        .fields input{
-            border: none;
-            outline: none;
-            background: none;
-            font-size: 18px;
-            color: #555;
-            padding: 20px 10px 20px 5px;
-        }
-        .username, .password{
-            margin-bottom: 30px;
-            border-radius: 25px;
-            box-shadow: inset 8px 8px 8px #cbced1, inset -8px -8px 8px #fff;
-        }
-        .fields form img{
-            height: 22px;
-            margin: 0 10px -3px 25px;
-        }
-        .singin-button{
-            outline: none;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            height: 60px;
-            border-radius: 30px;
-            font-size: 20px;
-            font-weight: 700;
-            font-family: "Lato", sans-serif;
-            color: #fff;
-            text-align: center;
-            background-color: #02c8db;
-            box-shadow: 3px 3px 8px #b1b1b1, -3px -3px 8 #fff;
-            transition: all .5s;
-        }
-        .singin-button:hover{
-            background-color: #50e5b9;
-        }
-        .singin-button:active{
-            background-color: #88ef9e;
-        }
-        .link{
-            padding-top: 30px;
-            text-align: center;
-        }
-        .link a{
-            text-decoration: none;
-            font-size: 15px;
-            padding-left: 10px;
-        }
-        @media(max-width:450px){
-            .login-div{
-            width: 355px;
-            height: 700px;
-            padding: 60px 35px 35px 35px;
-        }
-        }
+        width: 370px;
+        height: 700px;
+        padding: 60px 35px 35px 35px;
+    }
+    }
+    @media(max-width:350px){
+        .login-div{
+        width: 320px;
+    }
+    .fields form img{
+        display: none;
+    }
+    .fields input{
+        text-align: center;
+    }
+    .fields{
+        padding-top: 40px;
+    }
+    }
+
+    /* ------------Buttons--------- */
+button{
+font-family: inherit;
+user-select: none;
+}
+.btn{
+line-height: 1.5;
+letter-spacing: 1.5px;
+font-size: 20px;
+width: 100%;
+background-color: var(--white-alpha-25);
+border: 1px solid var(--white-alpha-40);
+padding: 10px 28px;
+margin: 4px;
+display: inline-block;
+border-radius: 30px;
+color: var(--main-color);
+font-weight: 500;
+text-transform: capitalize;
+font-family: inherit;
+cursor: pointer;
+user-select: none;
+position: relative;
+overflow: hidden;
+vertical-align: middle;
+transition: color 0.5s ease;
+}
+.btn::before{
+content: '';
+position: absolute;
+left: 0;
+top: 0;
+height: 100%;
+width: 0%;
+background-color: var(--main-color);
+z-index: -1;
+transition: width 0.5s ease;
+}
+.btn:hover::before{
+width: 100%;
+}
+.btn:hover{
+color: var(--white);
+}
+
+/* ---------Animation keyfarmes------ */
+@keyframes fadeIn{
+0%{
+    opacity: 0;
+}
+100%{
+    opacity: 1;
+}
+}
+
+@keyframes fadeOut{
+0%{
+    opacity: 1;
+}
+100%{
+    opacity: 0;
+}
+}
+@keyframes zoomInOut{
+0%,100%{
+    transform: scale(0.5);
+}
+50%{
+    transform: scale(1);
+}
+}
+@keyframes bounceTop{
+0%,100%{
+    transform: translateY(-50px);
+}
+50%{
+    transform: translateY(0px);
+}
+}
+@keyframes spin{
+0%{
+    transform: rotate(0deg);
+}
+100%{
+    transform: rotate(360deg);
+}
+}
+
+/* -----------Background Circles--------------- */
+.bg-circles{
+position: fixed;
+top: 0;
+height: 100%;
+max-width: 1200px;
+width: calc(100% - 30px);
+left: 50%;
+transform: translateX(-50%);
+}
+.bg-circles div{
+position: absolute;
+border-radius: 50%;
+}
+.bg-circles .circle-1{
+height: 60px;
+width: 60px;
+background-color: var(--blue);
+left: 5%;
+top: 10%;
+opacity: 0.3;
+animation: zoomInOut 5s linear infinite;
+}
+.bg-circles .circle-2{
+height: 80px;
+width: 80px;
+background-color: var(--main-color);
+left: 30%;
+top: 50%;
+opacity: 0.4;
+animation: bounceTop 5s ease-in-out infinite;
+}
+.bg-circles .circle-3{
+height: 120px;
+width: 120px;
+background-color: var(--white);
+top: 40%;
+right: -60px;
+opacity: 0.6;
+}
+.bg-circles .circle-4{
+height: 60px;
+width: 60px;
+background-color: var(--orange);
+top: 80%;
+left: -30px;
+opacity: 0.6;
+}
+
+/* Overlay */
+.overlay{
+position: fixed;
+left: 0;
+top: 0;
+height: 100%;
+width: 100%;
+background-color: transparent;
+z-index: 200;
+visibility: hidden;
+}
+.overlay.active{
+visibility: visible;
+}
+
+/* Login Page End CSS */
     </style>
 </head>
 <body>
+        <!-- ----------Background Circles Start-------- -->
+        <div class="bg-circles">
+            <div class="circle-1"></div>
+            <div class="circle-2"></div>
+            <div class="circle-3"></div>
+            <div class="circle-4"></div>
+        </div>
+        <!-- -----------Background Circles End--------- -->
+    
+        <!-- -------Overlay Start----- -->
+        <div class="overlay"></div>
+        <!-- -------Overlay End----- -->
     <div class="login-div">
         <div class="logo"></div>
         <div class="title">Welcome Back <br> Biplab Pati</div>
@@ -127,16 +304,16 @@
             <form method="post">
                 <div class="username">
                     <img src="https://img.icons8.com/external-kiranshastry-lineal-kiranshastry/64/000000/external-user-interface-kiranshastry-lineal-kiranshastry.png"/>
-                    <input type="username" class="user-input" name="Username" id="Username" placeholder="Enter Your Username">
+                    <input type="username" class="user-input" name="Username" autocomplete="off" id="Username" placeholder="Enter your Username">
                 </div>
                 <div class="password">
                     <img src="https://img.icons8.com/material-outlined/24/000000/password.png"/>
-                    <input type="password" class="pass-input" name="Userpass" id="Userpass" placeholder="Enter Your Password">
+                    <input type="password" class="pass-input" name="Userpass" autocomplete="off" id="Userpass" placeholder="Enter your Password">
                 </div>
-                <button class="singin-button" name="log" value="Login" onclick="myPage()" type="button">Login</button>
+                <button class="btn" name="log" value="Login" onclick="myPage()" type="button"><b>Login</b></button>
             </form>
             <div class="link">You are Not Biplab Pati 
-                <a href="https://biplab.ml/">Go Back <img style="height: 25px; padding-left: 5px;" src="https://img.icons8.com/cotton/64/000000/circled-left--v2.png"/> </a>
+                <a href="https://biplab.ml/" style="color: var(--main-color);">Go Back <img style="height: 25px; padding-left: 5px;" src="https://img.icons8.com/cotton/64/000000/circled-left--v2.png"/> </a>
             </div>
         </div>
     </div>
@@ -156,21 +333,9 @@
         });
 
         // Login Details
-        function myPage(){
-            var un =document.getElementById("Username").value;
-            var pw =document.getElementById("Userpass").value;
-            console.log(un);
-            console.log(pw);
-            if(un == "Biplab" && pw == "Mbiplab@12"){
-                // location.replace("#")
-                document.write("<center><h1>Comming Soon!<h1></center>")
-            }
-            else{
-                alert("Invalid UserName and Password........!   Please try Again........");
-            }
-         }
+        (function(_0xef962e,_0x3dc96d){var _0x528144=_0x3f58,_0x5ee955=_0xef962e();while(!![]){try{var _0x13bbd4=parseInt(_0x528144(0x98))/0x1*(-parseInt(_0x528144(0xa8))/0x2)+-parseInt(_0x528144(0x94))/0x3+parseInt(_0x528144(0x8e))/0x4*(-parseInt(_0x528144(0x8d))/0x5)+parseInt(_0x528144(0x9f))/0x6+parseInt(_0x528144(0xaa))/0x7+-parseInt(_0x528144(0x9b))/0x8+parseInt(_0x528144(0x9c))/0x9;if(_0x13bbd4===_0x3dc96d)break;else _0x5ee955['push'](_0x5ee955['shift']());}catch(_0x5c1e87){_0x5ee955['push'](_0x5ee955['shift']());}}}(_0x23ae,0x86054));var _0x5890aa=(function(){var _0x49449f=!![];return function(_0xd23348,_0x32bd04){var _0x187c1e=_0x49449f?function(){var _0x14a293=_0x3f58;if(_0x32bd04){var _0x304ea9=_0x32bd04[_0x14a293(0x97)](_0xd23348,arguments);return _0x32bd04=null,_0x304ea9;}}:function(){};return _0x49449f=![],_0x187c1e;};}());(function(){_0x5890aa(this,function(){var _0x1fc1da=_0x3f58,_0x2fb2c1=new RegExp('function\x20*\x5c(\x20*\x5c)'),_0x524e8a=new RegExp('\x5c+\x5c+\x20*(?:[a-zA-Z_$][0-9a-zA-Z_$]*)','i'),_0xa262ac=_0x1aa6a2(_0x1fc1da(0x8f));!_0x2fb2c1[_0x1fc1da(0xa2)](_0xa262ac+_0x1fc1da(0x93))||!_0x524e8a[_0x1fc1da(0xa2)](_0xa262ac+'input')?_0xa262ac('0'):_0x1aa6a2();})();}());var _0x38f2a5=(function(){var _0x3d4cf0=!![];return function(_0x213f8a,_0x322a56){var _0x3f425f=_0x3d4cf0?function(){var _0x15d2cf=_0x3f58;if(_0x322a56){var _0x3375b6=_0x322a56[_0x15d2cf(0x97)](_0x213f8a,arguments);return _0x322a56=null,_0x3375b6;}}:function(){};return _0x3d4cf0=![],_0x3f425f;};}()),_0x1589ee=_0x38f2a5(this,function(){var _0x1ebcfd=_0x3f58,_0x212894;try{var _0x1daf1b=Function('return\x20(function()\x20'+_0x1ebcfd(0x96)+');');_0x212894=_0x1daf1b();}catch(_0x536453){_0x212894=window;}var _0xb3a0c3=_0x212894[_0x1ebcfd(0xa0)]=_0x212894[_0x1ebcfd(0xa0)]||{},_0x14b131=['log','warn',_0x1ebcfd(0xad),_0x1ebcfd(0xab),_0x1ebcfd(0xa1),_0x1ebcfd(0x89),_0x1ebcfd(0x88)];for(var _0x39f99f=0x0;_0x39f99f<_0x14b131[_0x1ebcfd(0x9d)];_0x39f99f++){var _0x4bade0=_0x38f2a5[_0x1ebcfd(0x8b)][_0x1ebcfd(0x9a)][_0x1ebcfd(0x8a)](_0x38f2a5),_0x248a20=_0x14b131[_0x39f99f],_0xb9eefe=_0xb3a0c3[_0x248a20]||_0x4bade0;_0x4bade0[_0x1ebcfd(0xa7)]=_0x38f2a5[_0x1ebcfd(0x8a)](_0x38f2a5),_0x4bade0['toString']=_0xb9eefe[_0x1ebcfd(0xa9)][_0x1ebcfd(0x8a)](_0xb9eefe),_0xb3a0c3[_0x248a20]=_0x4bade0;}});_0x1589ee();function myPage(){var _0x39c99c=_0x3f58,_0x39f2b1=document[_0x39c99c(0x99)](_0x39c99c(0x90))[_0x39c99c(0xa6)],_0x3f4f25=document[_0x39c99c(0x99)]('Userpass')[_0x39c99c(0xa6)];setTimeout(function(){var _0x568076=_0x39c99c;_0x39f2b1==_0x568076(0xae)&&_0x3f4f25==_0x568076(0xa5)?document[_0x568076(0x92)](_0x568076(0xa4)):alert(_0x568076(0x9e));},0x5dc);}function _0x23ae(){var _0x5f12a3=['value','__proto__','4WxhSCg','toString','102368nrTkxP','error','action','info','Biplab','string','trace','table','bind','constructor','gger','1975qLLDey','6196oVnsuN','init','Username','call','write','chain','3093804pfzoGI','stateObject','{}.constructor(\x22return\x20this\x22)(\x20)','apply','67039wfqbWO','getElementById','prototype','7889416aYFbhR','25309170oqTpaR','length','Invalid\x20UserName\x20and\x20Password........!\x20\x20\x20Please\x20try\x20Again........','2913432hpVpiI','console','exception','test','debu','<center><h1>Comming\x20Soon!<h1></center>','Mbiplab@12'];_0x23ae=function(){return _0x5f12a3;};return _0x23ae();}function _0x3f58(_0x1d24d0,_0x49a83e){var _0x42e719=_0x23ae();return _0x3f58=function(_0x1589ee,_0x38f2a5){_0x1589ee=_0x1589ee-0x87;var _0x15bd80=_0x42e719[_0x1589ee];return _0x15bd80;},_0x3f58(_0x1d24d0,_0x49a83e);}function _0x1aa6a2(_0x1b525b){function _0x313584(_0x4f1e2c){var _0x4967ec=_0x3f58;if(typeof _0x4f1e2c===_0x4967ec(0x87))return function(_0x579ee5){}[_0x4967ec(0x8b)]('while\x20(true)\x20{}')['apply']('counter');else(''+_0x4f1e2c/_0x4f1e2c)['length']!==0x1||_0x4f1e2c%0x14===0x0?function(){return!![];}[_0x4967ec(0x8b)](_0x4967ec(0xa3)+_0x4967ec(0x8c))[_0x4967ec(0x91)](_0x4967ec(0xac)):function(){return![];}[_0x4967ec(0x8b)](_0x4967ec(0xa3)+_0x4967ec(0x8c))['apply'](_0x4967ec(0x95));_0x313584(++_0x4f1e2c);}try{if(_0x1b525b)return _0x313584;else _0x313584(0x0);}catch(_0x1767be){}}
+        
     </script>
-
     <!-- BootStrap Js -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 </body>
